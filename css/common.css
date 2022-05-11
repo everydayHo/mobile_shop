@@ -1,0 +1,130 @@
+/* Typography */
+
+body {
+	font-family: 'SF UI Display Light';
+	font-size: 15px;
+	color: #4a4a4a;
+}
+.heading1 {
+	font-family: 'SF UI Display Heavy';
+	font-size: 36px;
+	letter-spacing: 0.29px;
+}
+.heading2 {
+	font-family: 'SF UI Display Bold';
+	font-size: 26px;
+	letter-spacing: 0.21px;
+}
+.heading3 {
+	font-family: 'SF UI Display Heavy';
+	font-size: 24px;
+	letter-spacing: 0.19px;
+}
+.heading4 {
+	font-family: 'SF UI Display Heavy';
+	font-size: 20px;
+}
+.heading5 {
+	font-family: 'SF UI Display Semibold';
+	font-size: 20px;
+}
+.heading6 {
+	font-family: 'SF UI Display Semibold';
+	font-size: 14px;
+	letter-spacing: 0.11px;
+}
+
+/* Link & Button */
+.btn {
+	font-size: 14px;
+	background-color: #262628;
+	text-align: center;
+	color: #fff;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-family: 'SF UI Display Medium';
+	letter-spacing: 0.11px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+
+.big {
+	line-height: 50px;
+	font-size: 14px;
+	font-family: 'SF UI Display Semibold';
+}
+
+.default {
+	font-size: 13px;
+	line-height: 38px;
+}
+.small {
+	font-size: 13px;
+	line-height: 30px;
+}
+p {
+	line-height: 18px;
+}
+a {
+	cursor: pointer;
+	text-decoration: none;
+	color: #4a4a4a;
+}
+.hidden {
+	position: fixed;
+	left: -9999em;
+	top: 0;
+	overflow: hidden;
+	visibility: hidden;
+}
+hr {
+	border: none;
+	border-top: 1px solid #f5f5f5;
+	margin: 0;
+}
+.smpadding {
+	padding: 0 17px;
+}
+.uppercase {
+	text-transform: uppercase;
+}
+/* sprite img */
+.sprite {
+	background: url('../img/sprite.png') no-repeat;
+	display: inline-block;
+	text-indent: -9999em;
+	background-size: 376px 600px;
+	width: 18px;
+	height: 18px;
+}
+.arrow_left {
+	background-position: -236px -150px;
+}
+.touchevents .sprite {
+	background-image: url('../img/sprite@2x.png');
+}
+.sprite.close {
+	background-position: -118px -390px;
+}
+.sprite.aside_menu_toggle {
+	background-position: 0 -150px;
+}
+.sprite.whishlist {
+	background-position: -118px -246px;
+}
+.sprite.cart {
+	background-position: -118px -198px;
+}
+.sprite.plus {
+	background-position: -354px -150px;
+}
+.sprite.search_icon {
+	background-position: 0 -102px;
+}
+.sprite.open_bar_code {
+	background-position: 0 -582px;
+}
+.sprite.share {
+	background-position: -355px -247px;
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Login - Eshop</title>
+		<script
+			src="https://code.jquery.com/jquery-3.6.0.min.js"
+			integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+			crossorigin="anonymous"
+		></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+		<link rel="stylesheet" href="../css/style.css" />
+		<script defer src="../js/main.js"></script>
+	</head>
+	<body>
+		<main class="front">
+			<header class="signup">
+				<a href="./index.html" class="sprite close">close</a>
+				<h1 class="heading5">Sign Up</h1>
+			</header>
+			<section class="sub_content">
+				<form class="login_form signup_form">
+					<fieldset>
+						<legend class="hidden">signup form</legend>
+						<label for="username">User name</label>
+						<input type="text" id="username" placeholder="Your name" />
+						<label for="useremail">Email</label>
+						<input
+							type="email"
+							id="useremail"
+							placeholder="Your email address"
+						/>
+						<label for="userpw">Password</label>
+						<input type="password" id="userpw" placeholder="Your password" />
+						<label for="useraddress">Address</label>
+						<input type="text" id="useraddress" placeholder="Your address" />
+						<label for="userphone">Phone number</label>
+						<input
+							type="text"
+							id="userphone"
+							placeholder="xxx-xxxx-xxxx"
+							pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
+						/>
+					</fieldset>
+				</form>
+				<input type="submit" value="Sign up" class="btn big" />
+			</section>
+		</main>
+	</body>
+</html>
