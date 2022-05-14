@@ -84,7 +84,7 @@ $(function () {
 		var itemDelBtn = cartList.find('.cart_item_del');
 
 		// 열리자마자 계산
-		calcTotal();
+		// calcTotal();
 
 		// 수량을 바꾸면 합계 다시 계산
 		$('.qty input').change(calcTotal);
@@ -129,10 +129,21 @@ $(function () {
 				});
 
 			var itemDelSuccessBtn = $('.btn-success');
+
 			itemDelSuccessBtn.click(function () {
 				event.target.parentNode.remove();
+				reduceItem();
 				calcTotal();
 			});
+
+			function reduceItem() {
+				var cartItems = $('.cart_content h3 span');
+				var remainItem = parseInt(cartItems.text().replace(' ITEMS ', ''));
+				var remainItemList = cartItems
+					.text()
+					.replace(remainItem, remainItem - 1);
+				cartItems.html(`${remainItemList}`);
+			}
 		});
 		// 합계 구하기 함수
 		function calcTotal() {
