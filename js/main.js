@@ -13,9 +13,15 @@ $(function () {
 	}
 	//홈 카테고리 슬라이드
 	if ($('.category_menus').length > 0) {
-		var menuswiper = new Swiper('.category_menus', {
-			slidesPerView: 2.5,
-			spaceBetween: 27,
+		$('.swiper-wrapper').slick({
+			dots: false,
+			arrows: false,
+			infinite: false,
+			slidesToShow: 2,
+			speed: 300,
+			slidesToShow: 1,
+			centerMode: false,
+			variableWidth: true,
 		});
 	}
 
@@ -142,7 +148,8 @@ $(function () {
 					// 변수명 totalPrice 해당아이템 각각의 단가 x 개수(uniCount)
 					// grandTotal 값을 targetTotal의 내용으로 교체한다
 					totalPrice += unitPrice * unitCount;
-					var subTotal = (totalPrice + shippingCost).toLocaleString('en');
+					var subTotal =
+						(totalPrice + shippingCost).toLocaleString('en') + '.00';
 					var grandTotal = '$ ' + subTotal;
 
 					targetTotal.text(grandTotal);
