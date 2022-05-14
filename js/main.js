@@ -84,7 +84,7 @@ $(function () {
 		var itemDelBtn = cartList.find('.cart_item_del');
 
 		// 열리자마자 계산
-		// calcTotal();
+		calcTotal();
 
 		// 수량을 바꾸면 합계 다시 계산
 		$('.qty input').change(calcTotal);
