@@ -69,4 +69,87 @@ $(function () {
 				.css({ color: '#f05522' });
 		});
 	}
+	// 장바구니페이지 합계 구하기
+	if ($('.cart_list').length) {
+		var cartList = $('.cart_list li');
+		var targetTotal = $('.total_price .price');
+		var shippingCost = parseInt($('.shipping .price').text().replace('$ ', ''));
+		var totalPrice = 0;
+		var itemDelBtn = cartList.find('.cart_item_del');
+
+		// 열리자마자 계산
+		calcTotal();
+
+		// 수량을 바꾸면 합계 다시 계산
+		$('.qty input').change(calcTotal);
+
+		// x를 눌러서 item을 삭제해도 다시 계산
+		itemDelBtn.click(function (event) {
+			const swalWithBootstrapButtons = Swal.mixin({
+				customClass: {
+					confirmButton: 'btn btn-success',
+					cancelButton: 'btn btn-danger',
+				},
+				buttonsStyling: true,
+			});
+
+			swalWithBootstrapButtons
+				.fire({
+					title: 'Are you sure?',
+					text: "You won't be able to revert this!",
+					icon: 'warning',
+					showCancelButton: true,
+					confirmButtonText: 'Yes, delete it!',
+					cancelButtonText: 'No, cancel!',
+					reverseButtons: true,
+				})
+				.then((result) => {
+					if (result.isConfirmed) {
+						swalWithBootstrapButtons.fire(
+							'Deleted!',
+							'Your item has been deleted.',
+							'success'
+						);
+					} else if (
+						/* Read more about handling dismissals below */
+						result.dismiss === Swal.DismissReason.cancel
+					) {
+						swalWithBootstrapButtons.fire(
+							'Cancelled',
+							'Your cart item is safe :)',
+							'error'
+						);
+					}
+				});
+
+			var itemDelSuccessBtn = $('.btn-success');
+			itemDelSuccessBtn.click(function () {
+				event.target.parentNode.remove();
+				calcTotal();
+			});
+		});
+		// 합계 구하기 함수
+		function calcTotal() {
+			cartList = $('.cart_list li');
+			totalPrice = 0;
+			if (cartList.length > 0) {
+				cartList.each(function () {
+					var unitPrice = parseInt(
+						$(this).find('.unit_price').text().replace('$ ', '')
+					);
+					var unitCount = $(this).find('input').val();
+
+					// 변수명 totalPrice 해당아이템 각각의 단가 x 개수(uniCount)
+					// grandTotal 값을 targetTotal의 내용으로 교체한다
+					totalPrice += unitPrice * unitCount;
+					var subTotal = (totalPrice + shippingCost).toLocaleString('en');
+					var grandTotal = '$ ' + subTotal;
+
+					targetTotal.text(grandTotal);
+				});
+			} else {
+				targetTotal.text('$ 0.00');
+			}
+		}
+	}
 });
